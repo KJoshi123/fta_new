@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "dotenv": "^8.6.0",
+    "express": "^4.17.1",
     "mongoose": "^6.0.13"
   },
   "devDependencies": {
@@ -11,7 +12,7 @@
     "prettier": "^1.17.1"
   },
   "scripts": {
-    "dev" : "nodemon index.js",
-    "serve" : "node index.js"
+    "dev": "nodemon index.js",
+    "serve": "node index.js"
   }
 }
