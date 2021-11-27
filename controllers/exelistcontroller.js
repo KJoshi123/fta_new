@@ -19,14 +19,14 @@ module.exports = function(app){
             fteexedte.find({userid : userid},(error,data) => {
                 console.log(`data received \n ${data}`);
                 if(error) throw error;
-                if(!data){
+                if(data == ""){
                     console.log(`No data found for user = ${userid}`);
-                    return returnObject;
+                    res.send({
+                        "statuscode" : 404,
+                        "message" : "data not found",
+                        "data" : null
+                    })
                 }
-                //return details
-                // data.forEach( (item) => {
-                //     returnObject.push(item);
-                // })
                 console.log("out of getlist api");
                 res.send({
                     "statuscode" : 200,
