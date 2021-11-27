@@ -14,7 +14,7 @@ dbObject(process.env.MONGODB_URL)
 
 
 //Creating application server
-const PORT = process.env.PORT_NUMBER || 5000;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Application started at port ${PORT}`);
 })
