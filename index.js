@@ -3,6 +3,7 @@ const express = require('express')
 const dbObject = require('./config/dbconnect')
 const bodyparser = require("body-parser")
 const listDetails = require("./api/getListDetails");
+const exelistcontroller = require('./controllers/exelistcontroller');
 
 
 const app = express()
@@ -25,7 +26,7 @@ app.use(bodyparser.urlencoded({ extended: true }))
 //defining apis
 //app.use('/api/getList', require('./api/getListDetails'));
 
-app.get("/api/getList",(req,res) => {
+/*app.get("/api/getList",(req,res) => {
     console.log("Inside getList API");
     const userid = req.query.userid;
     const data = [];
@@ -40,4 +41,6 @@ app.get("/api/getList",(req,res) => {
     
     res.setHeader('Content-Type','application/json');
     res.send(JSON.stringify(data));
-})
+})*/
+
+exelistcontroller(app);
