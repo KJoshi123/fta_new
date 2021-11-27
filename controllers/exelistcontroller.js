@@ -44,4 +44,28 @@ module.exports = function(app){
             })
         }
     });
+
+    app.post("/api/saveexercise",function(req,res){
+        console.log("into api save exercise")
+        console.log(req.body);
+        try{
+            fteexedte(req.body).save(function(error,data){
+                if(error) throw error;
+                console.log('save success')
+            });
+            console.log("out of api save exercise")
+            res.send({
+                "statuscode" : 200,
+                "message" : "success"
+            });
+        }
+        catch(err){
+            console.log(`internal server error ${err}`)
+            res.send({
+                "statuscode" : 500,
+                "message" : `internal server error`
+            });
+        }
+        
+    })
 }
