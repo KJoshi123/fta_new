@@ -40,11 +40,11 @@ const fteexedte = require('../models/fteexedte');
 });*/
 
 
-async function getListDetails(userid){
+function getListDetails(userid){
     console.log(`Inside getListDetails api service for user id ${userid}`);
     const responseObject = []
     const returnObject = []
-    fteexedte.find({userid : userid}, async (error,data) => {
+    fteexedte.find({userid : userid},(error,data) => {
         console.log(`data received \n ${data}`);
         
         if(error) throw error;

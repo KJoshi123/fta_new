@@ -25,12 +25,19 @@ app.use(bodyparser.urlencoded({ extended: true }))
 //defining apis
 //app.use('/api/getList', require('./api/getListDetails'));
 
-app.get("/api/getList", async (req,res) => {
+app.get("/api/getList",(req,res) => {
     console.log("Inside getList API");
     const userid = req.query.userid;
-    
-    const data =  await listDetails.getListDetails(userid);
+    const data = [];
+
+    listDetails.getListDetails(userid)
+    .then(function(value){
+        data.push(...value);
+        console.log(`data from api ${value}`);
+    }).catch(function(value){
+        console.log(`error from api ${value}`);
+    });
     
     res.setHeader('Content-Type','application/json');
-    res.end(JSON.stringify(data));
+    res.send(JSON.stringify(data));
 })
