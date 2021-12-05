@@ -11,6 +11,14 @@ const app = express()
 console.log("Trying to connect db")
 dbObject(process.env.MONGODB_URL)
 
+//Adding COREs
+app.use(function(req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    next();
+});
 
 
 //Creating application server
